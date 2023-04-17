@@ -58,7 +58,7 @@ class ContentfulPreprocessor(grow.Preprocessor):
         # Use the page's "title" field to determine all the locales that
         # the page is in.
         # TODO(stevenle): this needs a better impl.
-        locales_for_field = raw_fields.get('title', [])
+        locales_for_field = raw_fields.get('storyTitle', []) if raw_fields.get('storyTitle', []) else raw_fields.get('title', [])
 
         def _tag_localized_fields(obj, fields, tag_built_ins=False):
             for key in fields.keys():
